@@ -54,5 +54,25 @@ void main()
 		}
 	}
 	
+		for(i=0;i<r;i++)
+	{
+		scanf("%d",&newResource[i]);
+	}
+	//checking if the requested resource is available or not
+	for(i=0;i<r;i++)
+	{
+		if(newResource[i]>f[id].need[i] || newResource[i]<0)
+			errors=1;
+	}
+		
+	if(errors==1)
+		goto X;
+		
+	for(i=0;i<r;i++)
+		{
+			//scanf("%d",&newr);
+			f[id].allocation[i] = f[id].allocation[i] + newResource[i];
+			avail[i]=avail[i]-newResource[i];
+		}	
 }
 
