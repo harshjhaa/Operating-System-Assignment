@@ -32,7 +32,7 @@ void main()
 		f[i].flag=0;
 	}
 	
-		// inserting the value of the available resource
+	// inserting the value of the available resource
 	printf("\nEnter the available resources :-\n ");
 	for(i=0;i<r;i++)													//here 'i' indicates about the resources i.e. 0=>A, 1=>B, 2=>C.......
 		scanf("%d",&avail[i]);
@@ -53,8 +53,8 @@ void main()
 				f[i].need[j]=0;
 		}
 	}
-	
-		for(i=0;i<r;i++)
+		
+	for(i=0;i<r;i++)
 	{
 		scanf("%d",&newResource[i]);
 	}
@@ -73,8 +73,9 @@ void main()
 			//scanf("%d",&newr);
 			f[id].allocation[i] = f[id].allocation[i] + newResource[i];
 			avail[i]=avail[i]-newResource[i];
-		}
-		cnt = 0;
+		}	
+		 	
+	cnt = 0;
 	fl = 0;
 	
 	//checking for the safe sequence
@@ -120,6 +121,7 @@ void main()
 				goto X;
 			}
 		}	
+		
 		//printing the safe state
 		printf("\nSystem is in Safe State \n");
 		printf("\nSafe Sequence is (\t ");
@@ -158,4 +160,3 @@ void main()
 				}
 			}		
 }
-
