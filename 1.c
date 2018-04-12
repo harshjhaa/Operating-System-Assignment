@@ -73,6 +73,52 @@ void main()
 			//scanf("%d",&newr);
 			f[id].allocation[i] = f[id].allocation[i] + newResource[i];
 			avail[i]=avail[i]-newResource[i];
+		}
+		cnt = 0;
+	fl = 0;
+	
+	//checking for the safe sequence
+	//applyig safety algorithm
+	while(cnt!=n)													
+		{
+			g=0;
+			for(j=0;j<n;j++)	// here j belogs to the number of process
+			{
+				if(f[j].flag == 0)
+				{
+					b=0;
+					for(p=0;p<r;p++)		// here p belongs to the number of resources
+					{
+						if(avail[p]>=f[j].need[p]) 	// checking: work>=need
+							b++;
+						else
+							b--;
+					}
+					if(b==r)
+					{
+						printf("\nP%d is visited",j);
+						seq[fl++]=j;
+						f[j].flag=1;
+						for(k=0;k<r;k++)
+						{
+							avail[k] = avail[k] + f[j].allocation[k]; // work=work+allocation
+						}
+						cnt++;
+						printf("\t\tNew Work :: ");
+						for(k=0;k<r;k++)
+						{
+							printf("%3d",avail[k]);
+							printf("  ");
+						}
+						g=1;
+					}
+				}
+			}	
+			if(g==0)
+			{
+				printf("\nRequest cannot be granted and deadlok has occured !");
+				goto X;
+			}
 		}	
 }
 
