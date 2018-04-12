@@ -32,4 +32,27 @@ void main()
 		f[i].flag=0;
 	}
 	
+		// inserting the value of the available resource
+	printf("\nEnter the available resources :-\n ");
+	for(i=0;i<r;i++)													//here 'i' indicates about the resources i.e. 0=>A, 1=>B, 2=>C.......
+		scanf("%d",&avail[i]);
+		
+	//inserting the value of the new process request
+	printf("Enter new request details :- ");							// here any one of the assigned process is askng fr the new resourcce
+	printf("\nEnter Process number (0 or 1 or 2) \t--\t : ");
+	scanf("%d",&id);
+	int xyz=0;
+	// resourcs requet algorithm -
+	printf("\nEnter the reequest for new resources :-\n");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<r;j++)
+		{
+			f[i].need[j] = f[i].max[j] - f[i].allocation[j];
+			if(f[i].need[i]<0)
+				f[i].need[j]=0;
+		}
+	}
+	
 }
+
