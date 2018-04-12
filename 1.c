@@ -120,5 +120,42 @@ void main()
 				goto X;
 			}
 		}	
+		//printing the safe state
+		printf("\nSystem is in Safe State \n");
+		printf("\nSafe Sequence is (\t ");
+		for(i=0;i<fl;i++)
+		{
+			printf("P%d->",seq[i]);
+		}
+		
+		// final display of the record
+		printf("\t)");
+		X:	
+			if(errors==1)
+			{
+				printf("\nRequest cannot be granted, since requested resource is greater than available resource or less than zero !\n");
+			}
+			printf("\n");
+			printf("\nProcess\t\tAllocation  \t   Maximum\t      Need\n");
+			for(i=0;i<n;i++)
+			{
+				printf("\nP%d\t",i);
+				//printing allocation matrix
+				printf(":");
+				for(j=0;j<r;j++)
+				{
+					printf("%6d",f[i].allocation[j]);
+				}
+				//printing max matrix
+				for(j=0;j<r;j++)
+				{
+					printf("%6d",f[i].max[j]);
+				}
+				//printing need matrix
+				for(j=0;j<r;j++)
+				{
+					printf("%6d",f[i].need[j]);
+				}
+			}		
 }
 
